@@ -1,4 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
-
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body { 
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flex { flex: 1; }
+.grow { flex-grow: 1; }
+.grow-2 { flex-grow: 2; }
+
+.d-flex, .row, .row-between { display: flex; }
+
+.row-between { justify-content: space-between; }
+
+.d-m { margin: 8px !important; }
+.d-m-right { margin-right: 8px !important; }
+.d-pad { padding: 8px !important; }
+.d-pad-right { padding-right: 8px !important; }
+
+.button-outline { border: 1px solid white !important; }
+.button-outline:hover { background-color: #0000001c; }
+
+.mouse-pointer { cursor: pointer; }
+
+.hover-div:hover { 
+    background-color: #0000001c;
+    transition: 200ms;
+}
+
+.border-r-hard { border-radius: 16px !important;}
