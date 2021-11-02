@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 // shared
-import { CrudService } from 'src/app/shared/components/crud-service/crud.service';
+import { CrudService } from 'src/app/shared/components/crud/crud.service';
 
 // aplicação
 import { Usuario } from './models/usuario';
