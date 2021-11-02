@@ -96,7 +96,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
-              "src/styles.css"
+              "src/styles.css",
+              "_variables.scss"
             ],
             "scripts": []
           }
