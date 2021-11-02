@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+// pages
+import { UsuarioDialogComponent } from 'src/app/pages/usuario/modules/usuario-dialog/usuario-dialog.component';
 
 // aplicação
 import { LabelValue } from '../../models/label-value';
@@ -10,6 +13,9 @@ import { ToolbarButtonActionType, getToolbarButtonActionLoginOptions } from './m
     styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
+
+    @ViewChild(UsuarioDialogComponent)
+    private usuarioDialog?: UsuarioDialogComponent;
 
     // enum options
     public buttonOptions: LabelValue[];
@@ -28,7 +34,7 @@ export class ToolbarComponent implements OnInit {
     public executeAction(action: ToolbarButtonActionType) {
         switch (action) {
             case 'LOGIN':
-                // TODO: modal do usuário
+                if (this.usuarioDialog) this.usuarioDialog.abrirDialog();
                 break;
             case 'INFO':
                 window.open('https://github.com/JoaoLeonardo/pw26s-websystem');
