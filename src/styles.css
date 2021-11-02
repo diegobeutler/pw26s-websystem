@@ -30,7 +30,7 @@ body {
 .d-pad { padding: 8px !important; }
 .d-pad-right { padding-right: 8px !important; }
 
-.button-outline { border: 1px solid white !important; }
+.button-outline { border: 1px solid #fff !important; }
 .button-outline:hover { background-color: #0000001c; }
 
 .mouse-pointer { cursor: pointer; }
@@ -49,4 +49,5 @@ body {
     scrollbar-width: thin;
 }
 
+.text-center { text-align: center; }
 .text-end { text-align: end; }

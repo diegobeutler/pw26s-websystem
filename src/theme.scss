@@ -1,0 +1,11 @@
+@import "./variables";
+
+$primary: map-get($theme, primary);
+$sucess: map-get($sucess-theme, primary);
+
+.mat-button {
+    color: #fff !important;
+    background-color: mat-color($primary) !important;
+}
+
+.text-sucess { color: mat-color($sucess); }

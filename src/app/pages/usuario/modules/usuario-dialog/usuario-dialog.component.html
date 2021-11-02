@@ -1,7 +1,86 @@
-<mat-dialog-content class="mat-typography">
-    <h3>Hi!</h3>
+<mat-dialog-content class="usuario-dialog">
+    <mat-stepper linear #stepper>
+
+        <!-- Dados pessoais -->
+        <mat-step [stepControl]="dadosPessoaisForm">
+            <form [formGroup]="dadosPessoaisForm">
+
+                <!-- Label -->
+                <ng-template matStepLabel>Dados pessoais</ng-template>
+
+                <!-- Nome -->
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="nome" placeholder="Nos conte seu nome...">
+                </mat-form-field>
+
+                <!-- Sobrenome -->
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Sobrenome</mat-label>
+                    <input matInput formControlName="sobrenome" placeholder="Nos conte seu sobrenome...">
+                </mat-form-field>
+
+                <!-- Email -->
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" placeholder="Digite seu email..." type="email">
+                </mat-form-field>
+
+                <!-- Ações -->
+                <div>
+                    <button mat-button matStepperNext>Próximo</button>
+                </div>
+
+            </form>
+        </mat-step>
+
+        <!-- Dados de usuário -->
+        <mat-step [stepControl]="dadosUsuarioForm">
+            <form [formGroup]="dadosUsuarioForm">
+
+                <!-- Label -->
+                <ng-template matStepLabel>Dados de usuário</ng-template>
+
+                <!-- Nome de usuário -->
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Nome de usuário</mat-label>
+                    <input matInput formControlName="username" placeholder="Digite aqui como devemos chamá-lo...">
+                </mat-form-field>
+
+                <!-- Senha -->
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Senha</mat-label>
+                    <input matInput formControlName="password" placeholder="Digite sua senha..." type="password">
+                </mat-form-field>
+
+                <!-- Confirmação da senha -->
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Confirmação da senha</mat-label>
+                    <input matInput formControlName="confirmacaoPassword" placeholder="Confirmação da senha..."
+                        type="password">
+                </mat-form-field>
+
+                <!-- Ações -->
+                <div>
+                    <button class="d-m-right" mat-button matStepperPrevious>Voltar</button>
+                    <button mat-button matStepperNext (click)="onClickBtnCadastrar()">Cadastrar</button>
+                </div>
+
+            </form>
+        </mat-step>
+        
+        <!-- Fim -->
+        <mat-step>
+            <ng-template matStepLabel>Fim</ng-template>
+            <div class="text-center">
+                <mat-icon class="d-pad text-sucess" aria-hidden="false">done_outline</mat-icon>
+                <h2><b>Você foi cadastrado com sucesso!</b></h2>
+                <p>Acesse seu <a href="">perfil</a> para mais informações</p>
+            </div>
+        </mat-step>
+
+    </mat-stepper>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancelar</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cadastrar-se</button>
+    <button mat-button mat-dialog-close>{{buttonLabel}}</button>
 </mat-dialog-actions>
