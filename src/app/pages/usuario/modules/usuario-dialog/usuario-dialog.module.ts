@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 // material
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
 // aplicação
@@ -17,6 +18,7 @@ import { UsuarioDialogComponent } from './usuario-dialog.component';
 
         // material
         MatStepperModule,
+        MatButtonModule,
         MatDialogModule,
         MatInputModule,
     ],
