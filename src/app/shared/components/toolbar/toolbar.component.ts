@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 // aplicação
 import { LabelValue } from '../../models/label-value';
-import { getToolbarButtonActionButtonOptions, ToolbarButtonActionType } from './models/enums/toolbar-button-action';
+import { ToolbarButtonActionType, getToolbarButtonActionLoginOptions } from './models/enums/toolbar-button-action';
 
 @Component({
     selector: 'app-toolbar',
@@ -16,16 +16,22 @@ export class ToolbarComponent implements OnInit {
 
     constructor() {
         // inicializa os enums
-        this.buttonOptions = getToolbarButtonActionButtonOptions();
-        console.log(this.buttonOptions[0].label);
+        this.buttonOptions = getToolbarButtonActionLoginOptions();
     }
 
     ngOnInit() { }
 
+    /**
+     * @description Chamado pelos botões da toolbar
+     * @param action Ação do botão
+     */
     public executeAction(action: ToolbarButtonActionType) {
         switch (action) {
-            default:
-                alert('ação!');
+            case 'LOGIN':
+                // TODO: modal do usuário
+                break;
+            case 'INFO':
+                window.open('https://github.com/JoaoLeonardo/pw26s-websystem');
                 break;
         }
     }
