@@ -10,6 +10,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 
+// shared
+import { SystemDirectivesModule } from 'src/app/shared/directives/system-directives.module';
+
 // aplicação
 import { UsuarioDialogComponent } from './usuario-dialog.component';
 
@@ -19,7 +22,7 @@ import { UsuarioDialogComponent } from './usuario-dialog.component';
         FormsModule,
         BrowserModule,
         ReactiveFormsModule,
-
+        
         // material
         MatStepperModule,
         MatButtonModule,

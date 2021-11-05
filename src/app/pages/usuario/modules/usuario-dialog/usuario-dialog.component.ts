@@ -55,7 +55,7 @@ export class UsuarioDialogComponent implements OnInit {
             dadosUsuario: this.formBuilder.group({
                 username: [null, Validators.required],
                 password: [null, Validators.required],
-                confirmacaoPassword: [null, Validators.required],
+                confirmacaoPassword: [null, Validators.required], // TODO: validator para confirmação
             }),
         });
     }
