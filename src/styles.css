@@ -29,6 +29,7 @@ body {
 .d-m-right { margin-right: 8px !important; }
 .d-pad { padding: 8px !important; }
 .d-pad-right { padding-right: 8px !important; }
+.d-pad-horizontal { padding: 8px 0px !important; }
 
 .button-outline { border: 1px solid #fff !important; }
 .button-outline:hover { background-color: #0000001c; }

@@ -1,18 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+
+// material
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatStepper } from '@angular/material/stepper';
 
 // aplicação
 import { UsuarioService } from '../../usuario.service';
+import { UsuarioDialogFormBuilder } from './core/usuario-dialog-form-builder';
 
 @Component({
     selector: 'app-usuario-dialog',
     templateUrl: 'usuario-dialog.component.html',
     styleUrls: ['./usuario-dialog.component.scss'],
     providers: [
-        // UsuarioService
+        UsuarioService,
+        UsuarioDialogFormBuilder,
     ]
 })
 export class UsuarioDialogComponent implements OnInit {
+
+    @ViewChild(MatStepper) 
+    private stepper?: MatStepper;
 
     /**
      * @description FormGroup da modal 
@@ -20,18 +29,25 @@ export class UsuarioDialogComponent implements OnInit {
     public form: FormGroup;
 
     /**
+     * @description Flag que identifica o componente em estado de "carregamento"
+     */
+    public loading: boolean;
+
+    /**
      * @description Label do botão de fechamento da modal
      */
     public buttonLabel: 'Cancelar' | 'Finalizar';
 
     constructor(
-        // private usuarioService: UsuarioService,
-        private formBuilder: FormBuilder,
+        private usuarioService: UsuarioService,
+        private formBuilder: UsuarioDialogFormBuilder,
+        private snackBar: MatSnackBar
     ) {
         // inicializa o form
-        this.form = this.criarForm();
+        this.form = this.formBuilder.criarForm();
 
         // incializa as variáveis do template
+        this.loading = false;
         this.buttonLabel = 'Cancelar';
     }
 
@@ -45,21 +61,6 @@ export class UsuarioDialogComponent implements OnInit {
         return this.form.controls['dadosUsuario'] as FormGroup;
     }
 
-    private criarForm(): FormGroup {
-        return this.formBuilder.group({
-            dadosPessoais: this.formBuilder.group({
-                nome: [null, Validators.required],
-                sobrenome: [null, Validators.required],
-                email: [null, Validators.required],
-            }),
-            dadosUsuario: this.formBuilder.group({
-                username: [null, Validators.required],
-                password: [null, Validators.required],
-                confirmacaoPassword: [null, Validators.required], // TODO: validator para confirmação
-            }),
-        });
-    }
-
     /**
      * @description Executa no click do botão "Cadastrar" do stepper
      * * Valida o form e cadastra o usuário
@@ -68,8 +69,15 @@ export class UsuarioDialogComponent implements OnInit {
         this.form.updateValueAndValidity();
 
         if (this.form.valid) {
-            // TODO: cadastrar o usuário
-            this.buttonLabel = 'Finalizar';
+            this.loading = true;
+            this.usuarioService.incluir(this.formBuilder.getUsuarioFromForm(this.form)).subscribe(() => {
+                this.loading = false;
+                this.buttonLabel = 'Finalizar';
+            }, error => {
+                this.loading = false;
+                this.stepper?.previous();
+                this.snackBar.open(error, 'Ok');
+            });
         }
     }
 

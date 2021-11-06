@@ -60,8 +60,12 @@
                         type="password">
                 </mat-form-field>
 
+                <mat-error *ngIf="dadosUsuarioForm.errors?.['confirmacaoIsDiferente']">
+                    A <b>senha</b> e a <b>confirmação da senha</b> estão diferentes
+                </mat-error>
+
                 <!-- Ações -->
-                <div>
+                <div class="d-pad-horizontal">
                     <button class="d-m-right" mat-button matStepperPrevious>Voltar</button>
                     <button mat-button matStepperNext (click)="onClickBtnCadastrar()">Cadastrar</button>
                 </div>
@@ -72,11 +76,16 @@
         <!-- Fim -->
         <mat-step>
             <ng-template matStepLabel>Fim</ng-template>
-            <div class="text-center">
-                <mat-icon class="d-pad text-sucess" aria-hidden="false">done_outline</mat-icon>
-                <h2><b>Você foi cadastrado com sucesso!</b></h2>
-                <p>Acesse seu <a href="">perfil</a> para mais informações</p>
+            <div *ngIf="loading; else endStepText" class="d-flex justify-center">
+                <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
             </div>
+            <ng-template #endStepText>
+                <div class="text-center">
+                    <mat-icon class="d-pad text-sucess" aria-hidden="false">done_outline</mat-icon>
+                    <h2><b>Você foi cadastrado com sucesso!</b></h2>
+                    <p>Acesse seu <a href="">perfil</a> para mais informações</p>
+                </div>
+            </ng-template>
         </mat-step>
 
     </mat-stepper>

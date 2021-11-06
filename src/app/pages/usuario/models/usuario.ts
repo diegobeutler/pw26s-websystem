@@ -4,7 +4,7 @@ export interface Usuario {
     id?: number;
     nome: string;
     sobrenome: string;
-    apelido: string;
+    email: string;
     username: string;
     password: string;
     permissoes?: any[];
