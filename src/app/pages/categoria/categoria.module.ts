@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // material
@@ -10,10 +9,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table'; 
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 // aplicação
 import { CategoriaComponent } from './categoria.page';
+import { CardCategoriaEdicaoComponent } from './cards/card-categoria-edicao/card-categoria-edicao.component';
+import { CardCategoriaPesquisaComponent } from './cards/card-categoria-pesquisa/card-categoria-pesquisa.component';
 
 const routes: Routes = [
     { path: '', component: CategoriaComponent }
@@ -24,7 +27,6 @@ const routes: Routes = [
         CommonModule,
         RouterModule.forChild(routes),
         FormsModule,
-        BrowserModule,
         HttpClientModule,
         ReactiveFormsModule,
         
@@ -33,9 +35,17 @@ const routes: Routes = [
         MatSnackBarModule,
         MatButtonModule,
         MatInputModule,
+        MatTableModule,
         MatIconModule,
+        MatCardModule,
     ],
-    declarations: [ CategoriaComponent ],
+    declarations: [ 
+        CategoriaComponent,
+        
+        // cards
+        CardCategoriaEdicaoComponent,
+        CardCategoriaPesquisaComponent,
+     ],
     providers: [],
 })
 export class CategoriaModule { }

@@ -16,13 +16,12 @@ $soft-primary: map-get($soft-theme, primary);
 
 .text-sucess { color: mat-color($sucess); }
 
-.mat-row:hover .mat-cell { background-color: mat-color($soft-primary); }
+.mat-row:hover .mat-cell { 
+    background-color: mat-color($soft-primary); 
 
-
-.mat-button-hover-actions { display: none }
-md-cell:hover{
     .mat-button-hover-actions {
-        display:block
+        display: inherit !important;
     }
 }
 
+.mat-button-hover-actions { display: none !important; }

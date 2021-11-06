@@ -76,7 +76,7 @@ export class UsuarioDialogComponent implements OnInit {
             }, error => {
                 this.loading = false;
                 this.stepper?.previous();
-                this.snackBar.open(error, 'Ok');
+                this.snackBar.open(error.message, 'Ok');
             });
         }
     }
