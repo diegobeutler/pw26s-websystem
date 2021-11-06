@@ -1,8 +1,10 @@
 @import "./variables";
 
 $primary: map-get($theme, primary);
+$accent: map-get($theme, accent);
 $warn: map-get($theme, warn);
 $sucess: map-get($sucess-theme, primary);
+$soft-primary: map-get($soft-theme, primary);
 
 .mat-button {
     color: #fff !important;
@@ -13,3 +15,14 @@ $sucess: map-get($sucess-theme, primary);
 .mat-button-warn { background-color: mat-color($warn) !important; }
 
 .text-sucess { color: mat-color($sucess); }
+
+.mat-row:hover .mat-cell { background-color: mat-color($soft-primary); }
+
+
+.mat-button-hover-actions { display: none }
+md-cell:hover{
+    .mat-button-hover-actions {
+        display:block
+    }
+}
+
