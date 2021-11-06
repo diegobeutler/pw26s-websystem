@@ -84,7 +84,7 @@ export abstract class CrudComponent<T> implements OnInit {
                 this.snackBar.open('O registro foi incluído com sucesso!', 'Ok');
             }, error => {
                 this.loading = false;
-                this.snackBar.open(error, 'Ok');
+                this.snackBar.open(error.message, 'Ok');
             });
         }
     }
@@ -101,7 +101,7 @@ export abstract class CrudComponent<T> implements OnInit {
                 this.snackBar.open('As alterações foram salvas com sucesso!', 'Ok');
             }, error => {
                 this.loading = false;
-                this.snackBar.open(error, 'Ok');
+                this.snackBar.open(error.message, 'Ok');
             });
         }
     }
@@ -117,7 +117,7 @@ export abstract class CrudComponent<T> implements OnInit {
             this.form.reset(res);
         }, error => {
             this.loading = false;
-            this.snackBar.open(error, 'Ok');
+            this.snackBar.open(error.message, 'Ok');
         });
     }
 
@@ -132,7 +132,7 @@ export abstract class CrudComponent<T> implements OnInit {
             this.snackBar.open('O registro foi excluído com sucesso!', 'Ok');
         }, error => {
             this.loading = false;
-            this.snackBar.open(error, 'Ok');
+            this.snackBar.open(error.message, 'Ok');
         });
     }
 
