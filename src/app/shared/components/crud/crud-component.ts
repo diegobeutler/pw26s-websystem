@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 
 // material
@@ -22,6 +22,7 @@ export abstract class CrudComponent<T> implements OnInit {
     public loading: boolean;
 
     constructor(
+        public formBuilder: FormBuilder,
         public service: CrudService<T>,
         public snackBar: MatSnackBar,
         public route: ActivatedRoute,
