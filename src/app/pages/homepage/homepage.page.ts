@@ -6,8 +6,8 @@ import { HomepageService } from './homepage.service';
 
 @Component({
     selector: 'app-homepage',
-    templateUrl: 'homepage.component.html',
-    styleUrls: ['./homepage.component.scss'],
+    templateUrl: './homepage.page.html',
+    styleUrls: ['./homepage.page.scss'],
     providers: [
         HomepageService,
     ]

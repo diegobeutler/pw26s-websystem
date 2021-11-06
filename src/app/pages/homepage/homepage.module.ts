@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 
 // material
 import { MatIconModule } from '@angular/material/icon';
 
 // aplicação
-import { HomepageComponent } from './homepage.component';
+import { HomepageComponent } from './homepage.page';
 import { ArtigosRowComponent } from './components/artigos-row/artigos-row.component';
-import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     { path: '', component: HomepageComponent }
