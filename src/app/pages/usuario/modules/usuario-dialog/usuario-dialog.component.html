@@ -75,10 +75,16 @@
 
         <!-- Fim -->
         <mat-step>
+
+            <!-- Label -->
             <ng-template matStepLabel>Fim</ng-template>
+
+            <!-- Loading -->
             <div *ngIf="loading; else endStepText" class="d-flex justify-center">
                 <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
             </div>
+
+            <!-- Texto -->
             <ng-template #endStepText>
                 <div class="text-center">
                     <mat-icon class="d-pad text-sucess" aria-hidden="false">done_outline</mat-icon>
@@ -86,6 +92,7 @@
                     <p>Acesse seu <a href="">perfil</a> para mais informações</p>
                 </div>
             </ng-template>
+            
         </mat-step>
 
     </mat-stepper>
